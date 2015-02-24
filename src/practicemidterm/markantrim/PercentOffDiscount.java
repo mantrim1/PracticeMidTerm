@@ -9,13 +9,15 @@ package practicemidterm.markantrim;
  *
  * @author Mark
  */
-public class PercentOffDiscount {
+public class PercentOffDiscount implements DiscountStrategy {
     private double discountRate = .10;
 
+    @Override
     public double getDiscountRate() {
         return discountRate;
     }
 
+    @Override
     public void setDiscountRate(double discountRate) {
         this.discountRate = discountRate;
     }
@@ -27,10 +29,12 @@ public class PercentOffDiscount {
     public PercentOffDiscount() {
     }
     
+    @Override
     public double getDiscountAmount(double price, int qty){
         return price*qty*this.discountRate;
         
     }
+    @Override
     public double getDiscountedTotal(double price, int qty){
         return price*qty-this.getDiscountedTotal(price, qty);
         
