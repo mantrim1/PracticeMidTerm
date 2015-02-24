@@ -14,7 +14,7 @@ public class FakeDatabase implements DataManagmentStrategy {
         new Customer("100", "John Smith")
     };
     private Product[] products ={
-    new Product("A100", "Packers T-Shirt", 39.99/*discount strategy goes here*/)
+    new Product("A100", "Packers T-Shirt", 39.99, new PercentOffDiscount())
 };
            
     
