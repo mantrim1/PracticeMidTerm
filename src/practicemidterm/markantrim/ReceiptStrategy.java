@@ -9,9 +9,7 @@ package practicemidterm.markantrim;
  *
  * @author Mark
  */
-public interface LineItemStrategy {
+public interface ReceiptStrategy {
     void output();
-    void setCustomer(Customer customer);
-    Product[] getProductsInTrans();
-    int[] getQtyInTrans();
+   
 }

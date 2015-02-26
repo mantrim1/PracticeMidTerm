@@ -5,36 +5,31 @@
  */
 package practicemidterm.markantrim;
 
+import static java.lang.System.arraycopy;
+
 /**
  *
  * @author Mark
+ 
  */
-public class ConsoleLineItem implements LineItemStrategy {
+//loop orig = temp temp=null orig[orig.length-1]="jim" 
+//arraycopy(orig, 0, temp, 0, orig.length)
+public class LineItem {
     private FakeDatabase fakeData;
-    private Product[] productsInTrans= {};
-    private int[] qtyInTrans ={};
+    private Product productsInTrans;   
+    private int qtyInTrans;
     private Customer customer;
-    @Override
-    public void output() {
-        System.out.println("Kohl's Department Store"
-                + "\n Customer Id: "+customer.getCustomerID()
-                + "\n Customer Name: "+customer.getCustomerName()
-                + "\n"
-                + "\n Item     QTY.    Name    Price   Disc"
-                + "\n");
-        
-    }
+    
 
-    public ConsoleLineItem(FakeDatabase fakeData, Customer customer) {
+    public LineItem(FakeDatabase fakeData, Customer customer) {
         this.fakeData = fakeData;
         this.customer = customer;
     }
 
-    public ConsoleLineItem() {
+    public LineItem() {
     }
     
-   
-
+    
     public FakeDatabase getFakeData() {
         return fakeData;
     }
@@ -43,11 +38,11 @@ public class ConsoleLineItem implements LineItemStrategy {
         this.fakeData = fakeData;
     }
 
-    public Product[] getProductsInTrans() {
+    public Product getProductsInTrans() {
         return productsInTrans;
     }
 
-    public void setProductsInTrans(Product[] productsInTrans) {
+    public void setProductsInTrans(Product productsInTrans) {
         this.productsInTrans = productsInTrans;
     }
 
@@ -59,15 +54,18 @@ public class ConsoleLineItem implements LineItemStrategy {
         this.customer = customer;
     }
 
-    public int[] getQtyInTrans() {
+    public int getQtyInTrans() {
         return qtyInTrans;
     }
 
-    public void setQtyInTrans(int[] qtyInTrans) {
+    public void setQtyInTrans(int qtyInTrans) {
         this.qtyInTrans = qtyInTrans;
     }
     
-    
+    public static void main(String[] args) {
+       
+    }
+ 
     
     
 }

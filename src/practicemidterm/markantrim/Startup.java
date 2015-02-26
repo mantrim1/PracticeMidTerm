@@ -18,8 +18,8 @@ public class Startup {
      */
     public static void main(String[] args) {
         
-        CashRegister test = new CashRegister();
-        test.newTransaction("100");
+        PosManager test = new PosManager();
+        test.newTransaction("100","A100");
         
         
     }

@@ -10,9 +10,9 @@ package practicemidterm.markantrim;
  * @author Mark
  */
 public class RetailTransactionMath implements TransactionMathsStrategy {
-    private LineItemStrategy lineItemStrategy;
+    private ReceiptStrategy lineItemStrategy;
 
-    public RetailTransactionMath(LineItemStrategy lineItemStrategy) {
+    public RetailTransactionMath(ReceiptStrategy lineItemStrategy) {
         this.lineItemStrategy = lineItemStrategy;
     }
     
