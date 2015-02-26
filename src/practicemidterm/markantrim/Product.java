@@ -73,6 +73,7 @@ public class Product {
         this.discountStrategy = discountStrategy;
     }
     public double getDiscountAmount(int qty){
+        
         return discountStrategy.getDiscountAmount(productPrice, qty);
     }
        

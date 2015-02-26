@@ -5,6 +5,7 @@
  */
 package practicemidterm.markantrim;
 import static java.lang.System.arraycopy;
+import java.text.*;
 /**
  *
  * @author Mark
@@ -24,12 +25,23 @@ public class ConsoleReceipt implements ReceiptStrategy {
     
    @Override
     public void output() {
+        DecimalFormat format = new DecimalFormat("#.###");
         System.out.println("Kohl's Department Store"
                 + "\n Customer Id: "+customer.getCustomerID()
                 + "\n Customer Name: "+customer.getCustomerName()
                 + "\n"
-                + "\n Item     QTY.    Name    Price   Disc    Total"
-                + "\n");
+                + "\n Item QTY. Name            Price   Disc    Total"
+                );
+        
+        for (LineItem lineItem : this.lineItems) {
+            System.out.println("\n"+lineItem.getProductsInTrans().getProductID()+
+                    "  "+lineItem.getQtyInTrans()+
+                    "  "+lineItem.getProductsInTrans().getProductName()+
+                    "    "+lineItem.getProductsInTrans().getProductPrice()+
+                    "   "+format.format(lineItem.getProductsInTrans().getDiscountAmount(lineItem.getQtyInTrans())));
+        }
+                
+        
        
         
     }
@@ -51,9 +63,10 @@ public class ConsoleReceipt implements ReceiptStrategy {
     public Customer getCustomer() {
         return customer;
     }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    @Override
+    public void setCustomer(String customerId) {
+        
+        this.customer = this.dataManagment.findCustomer(customerId);
     }
 
     

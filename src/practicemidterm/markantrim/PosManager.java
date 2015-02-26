@@ -15,8 +15,9 @@ public class PosManager {
     private ReceiptStrategy receiptStrategy;
     public final void newTransaction(String custID, String productId, int qty){
         this.receiptStrategy = new ConsoleReceipt();
+        this.receiptStrategy.setCustomer(custID);
         this.receiptStrategy.addItem(productId,qty);
-        
+        this.printReceipt();
         
     }
     public final void printReceipt(){
