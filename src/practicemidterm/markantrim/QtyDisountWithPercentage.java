@@ -5,6 +5,7 @@
  */
 package practicemidterm.markantrim;
 
+
 /**
  *
  * @author Mark
@@ -22,8 +23,10 @@ public class QtyDisountWithPercentage implements DiscountStrategy {
 
     @Override
     public double getDiscountAmount(double price, int qty) {
+        
         if(qty>=this.minQTY){
-            return price*qty*this.discountRate;
+           return price*qty*this.discountRate;
+            
         }else{
             return price*qty;
         }
