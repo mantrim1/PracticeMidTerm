@@ -21,8 +21,11 @@ public class CashRegister {
         this.lineItemStrategy = lineItemStrategy;
         this.dataManagmentStrategy = dataManagmentStrategy;
     }
-    
 
+    public CashRegister() {
+    }
+    
+    
     
 
    
@@ -36,7 +39,13 @@ public class CashRegister {
     
     public void addProductItems(String productID, int qty){
        Product product = dataManagmentStrategy.findProduct(productID);
-       
+       //add product to productInTrans array
+    }
+    public void newTransaction(String custID){
+        lineItemStrategy = new ConsoleLineItem();
+        inputStrategy = new HardCodeInput();
+        dataManagmentStrategy = new FakeDatabase();
+        this.addCustomerToTrans(custID);    
     }
     
     
