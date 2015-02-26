@@ -31,11 +31,12 @@ public class CashRegister {
     public void addCustomerToTrans(String customerID){
         Customer customer = dataManagmentStrategy.findCustomer(customerID);
         lineItemStrategy.setCustomer(customer);
-        lineItemStrategy.output();
+        
     }
     
     public void addProductItems(String productID, int qty){
-        dataManagmentStrategy.findProduct(productID);
+       Product product = dataManagmentStrategy.findProduct(productID);
+       
     }
     
     

@@ -9,9 +9,10 @@ package practicemidterm.markantrim;
  *
  * @author Mark
  */
-public interface LineItemStrategy {
-    void output();
-    void setCustomer(Customer customer);
-    Product[] getProductsInTrans();
-    int[] getQtyInTrans();
+public interface TransactionMathsStrategy {
+
+    double itemMaths(int qty, int index);
+
+    double totalMaths();
+    
 }

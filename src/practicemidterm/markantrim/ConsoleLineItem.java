@@ -12,6 +12,7 @@ package practicemidterm.markantrim;
 public class ConsoleLineItem implements LineItemStrategy {
     private FakeDatabase fakeData;
     private Product[] productsInTrans= {};
+    private int[] qtyInTrans ={};
     private Customer customer;
     @Override
     public void output() {
@@ -32,20 +33,7 @@ public class ConsoleLineItem implements LineItemStrategy {
     public ConsoleLineItem() {
     }
     
-    @Override
-    public double totalMaths() {
-        double total=0;
-        for(Product p : productsInTrans){
-            total+=itemMaths(qty, p);
-        }
-        return total;
-    }
-
-    @Override
-    public double itemMaths(int qty, int index) {
-        double qtyTotal=productsInTrans[index].getProductPrice()*qty;
-        return qtyTotal;
-    }
+   
 
     public FakeDatabase getFakeData() {
         return fakeData;
@@ -70,6 +58,15 @@ public class ConsoleLineItem implements LineItemStrategy {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+    public int[] getQtyInTrans() {
+        return qtyInTrans;
+    }
+
+    public void setQtyInTrans(int[] qtyInTrans) {
+        this.qtyInTrans = qtyInTrans;
+    }
+    
     
     
     
