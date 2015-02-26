@@ -5,25 +5,23 @@
  */
 package practicemidterm.markantrim;
 
-import static java.lang.System.arraycopy;
+
 
 /**
  *
  * @author Mark
  
  */
-//loop orig = temp temp=null orig[orig.length-1]="jim" 
-//arraycopy(orig, 0, temp, 0, orig.length)
+
 public class LineItem {
     private FakeDatabase fakeData;
     private Product productsInTrans;   
     private int qtyInTrans;
-    private Customer customer;
-    
 
-    public LineItem(FakeDatabase fakeData, Customer customer) {
+    public LineItem(FakeDatabase fakeData, Product productsInTrans, int qtyInTrans) {
         this.fakeData = fakeData;
-        this.customer = customer;
+        this.productsInTrans = productsInTrans;
+        this.qtyInTrans = qtyInTrans;
     }
 
     public LineItem() {
@@ -44,14 +42,6 @@ public class LineItem {
 
     public void setProductsInTrans(Product productsInTrans) {
         this.productsInTrans = productsInTrans;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
     }
 
     public int getQtyInTrans() {

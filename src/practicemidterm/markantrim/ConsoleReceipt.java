@@ -4,11 +4,13 @@
  * and open the template in the editor.
  */
 package practicemidterm.markantrim;
-
+import static java.lang.System.arraycopy;
 /**
  *
  * @author Mark
  */
+//loop orig = temp temp=null orig[orig.length-1]="jim" 
+//arraycopy(orig, 0, temp, 0, orig.length)
 public class ConsoleReceipt implements ReceiptStrategy {
     private Customer customer;
     private LineItem[] lineItem=new LineItem[0];
@@ -32,11 +34,8 @@ public class ConsoleReceipt implements ReceiptStrategy {
         
     }
 
-    public ConsoleReceipt(Customer customer, LineItem[] lineItem, DataManagmentStrategy dataManagment, TransactionMathsStrategy transMath) {
-        this.customer = customer;
-        this.lineItem = lineItem;
-        this.dataManagment = dataManagment;
-        this.transMath = transMath;
+    public ConsoleReceipt(String custID, DataManagmentStrategy dataManagment) {
+        this.customer=dataManagment.findCustomer(custID);
     }
 
     public Customer getCustomer() {
