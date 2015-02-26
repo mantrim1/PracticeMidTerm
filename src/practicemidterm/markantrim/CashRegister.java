@@ -15,38 +15,40 @@ public class CashRegister {
     private InputStrategy inputStrategy;
     private LineItemStrategy lineItemStrategy;
     private DataManagmentStrategy dataManagmentStrategy;
+    private TransactionMathsStrategy transactionMathsStrategy;
 
     public CashRegister(InputStrategy inputStrategy, LineItemStrategy lineItemStrategy, DataManagmentStrategy dataManagmentStrategy) {
         this.inputStrategy = inputStrategy;
         this.lineItemStrategy = lineItemStrategy;
         this.dataManagmentStrategy = dataManagmentStrategy;
+        
     }
 
     public CashRegister() {
     }
-    
-    
-    
-
-   
-    
-    
-    public void addCustomerToTrans(String customerID){
+     
+    public final void addCustomerToTrans(String customerID){
         Customer customer = dataManagmentStrategy.findCustomer(customerID);
         lineItemStrategy.setCustomer(customer);
         
     }
     
-    public void addProductItems(String productID, int qty){
+    public final void addProductItems(String productID, int qty){
        Product product = dataManagmentStrategy.findProduct(productID);
        //add product to productInTrans array
     }
-    public void newTransaction(String custID){
+    public final void newTransaction(String custID){
         lineItemStrategy = new ConsoleLineItem();
         inputStrategy = new HardCodeInput();
         dataManagmentStrategy = new FakeDatabase();
+        this.transactionMathsStrategy=new RetailTransactionMath(lineItemStrategy);
         this.addCustomerToTrans(custID);    
     }
-    
+    public final void printReceipt(){
+        lineItemStrategy.output();
+    }
+    public final void calculate(){
+        this.transactionMathsStrategy.totalMaths();       
+    }
     
 }

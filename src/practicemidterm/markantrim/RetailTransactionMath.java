@@ -11,6 +11,11 @@ package practicemidterm.markantrim;
  */
 public class RetailTransactionMath implements TransactionMathsStrategy {
     private LineItemStrategy lineItemStrategy;
+
+    public RetailTransactionMath(LineItemStrategy lineItemStrategy) {
+        this.lineItemStrategy = lineItemStrategy;
+    }
+    
  @Override
     public double totalMaths() {
         double total=0;
