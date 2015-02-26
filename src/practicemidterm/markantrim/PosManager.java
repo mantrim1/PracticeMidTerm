@@ -13,9 +13,10 @@ package practicemidterm.markantrim;
  */
 public class PosManager {
     private ReceiptStrategy receiptStrategy;
-    public final void newTransaction(String custID, String productId){
+    public final void newTransaction(String custID, String productId, int qty){
         this.receiptStrategy = new ConsoleReceipt();
-        receiptStrategy.output();
+        this.receiptStrategy.addItem(productId,qty);
+        
         
     }
     public final void printReceipt(){

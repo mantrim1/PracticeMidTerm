@@ -11,5 +11,6 @@ package practicemidterm.markantrim;
  */
 public interface ReceiptStrategy {
     void output();
+    void addItem(String productID, int qty);
    
 }

@@ -14,13 +14,13 @@ package practicemidterm.markantrim;
  */
 
 public class LineItem {
-    private FakeDatabase fakeData;
+    private DataManagmentStrategy fakeData;
     private Product productsInTrans;   
     private int qtyInTrans;
 
-    public LineItem(FakeDatabase fakeData, Product productsInTrans, int qtyInTrans) {
+    public LineItem(DataManagmentStrategy fakeData, String productsInTrans, int qtyInTrans) {
         this.fakeData = fakeData;
-        this.productsInTrans = productsInTrans;
+        this.productsInTrans = fakeData.findProduct(productsInTrans);
         this.qtyInTrans = qtyInTrans;
     }
 
@@ -28,7 +28,7 @@ public class LineItem {
     }
     
     
-    public FakeDatabase getFakeData() {
+    public DataManagmentStrategy getFakeData() {
         return fakeData;
     }
 

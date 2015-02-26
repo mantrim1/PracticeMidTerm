@@ -13,16 +13,16 @@ import static java.lang.System.arraycopy;
 //arraycopy(orig, 0, temp, 0, orig.length)
 public class ConsoleReceipt implements ReceiptStrategy {
     private Customer customer;
-    private LineItem[] lineItem=new LineItem[0];
-    private LineItem[] temp=new LineItem[0];
+    private LineItem[] lineItems=new LineItem[0];
     private DataManagmentStrategy dataManagment;
     private TransactionMathsStrategy transMath;
 
     public ConsoleReceipt() {
+        this.dataManagment= new FakeDatabase();
     }
     
     
-    @Override
+   @Override
     public void output() {
         System.out.println("Kohl's Department Store"
                 + "\n Customer Id: "+customer.getCustomerID()
@@ -36,6 +36,16 @@ public class ConsoleReceipt implements ReceiptStrategy {
 
     public ConsoleReceipt(String custID, DataManagmentStrategy dataManagment) {
         this.customer=dataManagment.findCustomer(custID);
+        this.dataManagment=dataManagment;
+        
+    }
+    @Override
+    public void addItem(String productID, int qty){
+        LineItem[] temp = new LineItem[lineItems.length + 1];
+        LineItem item = new LineItem(this.dataManagment,productID,qty);
+        arraycopy(this.lineItems, 0, temp, 0, this.lineItems.length);
+        this.lineItems=temp;
+        lineItems[lineItems.length-1] = item;
     }
 
     public Customer getCustomer() {
@@ -46,13 +56,7 @@ public class ConsoleReceipt implements ReceiptStrategy {
         this.customer = customer;
     }
 
-    public LineItem[] getLineItem() {
-        return lineItem;
-    }
-
-    public void setLineItem(LineItem[] lineItem) {
-        this.lineItem = lineItem;
-    }
+    
 
     public DataManagmentStrategy getDataManagment() {
         return dataManagment;
