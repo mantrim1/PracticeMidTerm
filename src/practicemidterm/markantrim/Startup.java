@@ -19,7 +19,8 @@ public class Startup {
     public static void main(String[] args) {
         
         PosManager test = new PosManager();
-        test.newTransaction("100","A100",2);
+        test.newTransaction("100");
+        test.addItem("A100", 2);
         
         
     }
