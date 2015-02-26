@@ -9,8 +9,8 @@ package practicemidterm.markantrim;
  *
  * @author Mark
  */
-public interface OutputStrategy {
-
-    void outputMessage();
-    
+public interface LineItemStrategy {
+    void output();
+    double totalMaths();
+    double itemMaths(int qty, int index);
 }

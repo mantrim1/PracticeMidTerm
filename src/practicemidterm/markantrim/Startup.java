@@ -5,10 +5,7 @@
  */
 package practicemidterm.markantrim;
 
-import SuperflousFiles.GUIWarning;
-import SuperflousFiles.ArrayListItemHolder;
-import SuperflousFiles.GUIInput;
-import SuperflousFiles.ArrayVsInputProductVerification;
+
 
 /**
  *
@@ -20,9 +17,9 @@ public class Startup {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        InputStrategy input = new GUIInput();
-        POSManager test = new POSManager(input,new ArrayListItemHolder(),new GUIWarning());
-        test.addProductItems();
+        
+        CashRegister test = new CashRegister(new HardCodeInput(),);
+        
     }
     
 }

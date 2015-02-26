@@ -13,14 +13,17 @@ public class Product {
         private String productID;
         private String productName;
         private double productPrice;
+        private DiscountStrategy discountStrategy;
 
     public Product() {
     }
+    
 
-    public Product(String productID, String productName, double productPrice) {
+    public Product(String productID, String productName, double productPrice, DiscountStrategy discountStrategy) {
         this.productID = productID;
         this.productName = productName;
         this.productPrice = productPrice;
+        this.discountStrategy=discountStrategy;
     }
         
 
@@ -60,6 +63,17 @@ public class Product {
         }else{
         this.productPrice = productPrice;
         }
+    }
+
+    public DiscountStrategy getDiscountStrategy() {
+        return discountStrategy;
+    }
+
+    public void setDiscountStrategy(DiscountStrategy discountStrategy) {
+        this.discountStrategy = discountStrategy;
+    }
+    public double getDiscountAmount(int qty){
+        return discountStrategy.getDiscountAmount(productPrice, qty);
     }
        
 }

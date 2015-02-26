@@ -6,9 +6,12 @@
 package practicemidterm.markantrim;
 
 /**
+ * 
  *
  * @author Mark
  */
 public interface DataManagmentStrategy {
+    Product findProduct(final String prodId);
+    Customer findCustomer(final String custId);
     
 }

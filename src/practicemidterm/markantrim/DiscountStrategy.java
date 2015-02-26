@@ -9,10 +9,14 @@ package practicemidterm.markantrim;
  *
  * @author Mark
  */
-public interface ItemHolderStrategy {
+public interface DiscountStrategy {
 
-    void addCustomer(Customer customer, int index);
+    double getDiscountAmount(double price, int qty);
 
-    void addItem(Product product, int index);
+    double getDiscountRate();
+
+    double getDiscountedTotal(double price, int qty);
+
+    void setDiscountRate(double discountRate);
     
 }

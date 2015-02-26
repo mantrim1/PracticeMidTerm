@@ -10,14 +10,15 @@ package practicemidterm.markantrim;
  * @author Mark
  */
 public class HardCodeInput implements InputStrategy {
-
+        private Customer customer;
     @Override
-    public String getProductID() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addCustomer() {
+        
     }
+        
 
     @Override
-    public String getCustomerID() {
+    public void addProduct() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

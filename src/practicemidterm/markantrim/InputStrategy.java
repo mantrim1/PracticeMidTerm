@@ -10,9 +10,7 @@ package practicemidterm.markantrim;
  * @author Mark
  */
 public interface InputStrategy {
+    void addCustomer();
     
-    String getProductID();
-    
-    String getCustomerID();
-    
+    void addProduct();   
 }
