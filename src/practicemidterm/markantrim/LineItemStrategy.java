@@ -13,4 +13,5 @@ public interface LineItemStrategy {
     void output();
     double totalMaths();
     double itemMaths(int qty, int index);
+    void setCustomer(Customer customer);
 }

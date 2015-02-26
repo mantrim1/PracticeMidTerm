@@ -15,17 +15,24 @@ public class CashRegister {
     private InputStrategy inputStrategy;
     private LineItemStrategy lineItemStrategy;
     private DataManagmentStrategy dataManagmentStrategy;
+
+    public CashRegister(InputStrategy inputStrategy, LineItemStrategy lineItemStrategy, DataManagmentStrategy dataManagmentStrategy) {
+        this.inputStrategy = inputStrategy;
+        this.lineItemStrategy = lineItemStrategy;
+        this.dataManagmentStrategy = dataManagmentStrategy;
+    }
     
 
-    public CashRegister(InputStrategy inputStrategy, LineItemStrategy lineItemStrategy) {    
-        this.inputStrategy = inputStrategy;
-        this.lineItemStrategy = lineItemStrategy;   
-    }
+    
 
    
     
     
-    
+    public void addCustomerToTrans(String customerID){
+        Customer customer = dataManagmentStrategy.findCustomer(customerID);
+        lineItemStrategy.setCustomer(customer);
+        lineItemStrategy.output();
+    }
     
     public void addProductItems(String productID, int qty){
         dataManagmentStrategy.findProduct(productID);

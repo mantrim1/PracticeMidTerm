@@ -18,7 +18,8 @@ public class Startup {
      */
     public static void main(String[] args) {
         
-        CashRegister test = new CashRegister(new HardCodeInput(),);
+        CashRegister test = new CashRegister(new HardCodeInput(), new ConsoleLineItem(), new FakeDatabase());
+        test.addCustomerToTrans("100");
         
     }
     
