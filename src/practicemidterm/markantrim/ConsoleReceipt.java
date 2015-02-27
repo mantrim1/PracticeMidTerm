@@ -33,12 +33,14 @@ public class ConsoleReceipt implements ReceiptStrategy {
                 + "\n Item QTY. Name            Price   Disc    Total"
                 );
         
-        for (LineItem lineItem : this.lineItems) {
-            System.out.println("\n"+lineItem.getProductsInTrans().getProductID()+
-                    "  "+lineItem.getQtyInTrans()+
-                    "  "+lineItem.getProductsInTrans().getProductName()+
-                    "    "+lineItem.getProductsInTrans().getProductPrice()+
-                    "   "+format.format(lineItem.getProductsInTrans().getDiscountAmount(lineItem.getQtyInTrans())));
+        for (int i=0;i<lineItems.length;i++) {
+            System.out.println("\n"+lineItems[i].getProductsInTrans().getProductID()+
+                    "  "+lineItems[i].getQtyInTrans()+
+                    "  "+lineItems[i].getProductsInTrans().getProductName()+
+                    "    "+lineItems[i].getProductsInTrans().getProductPrice()+
+                    "   "+format.format(lineItems[i].getProductsInTrans().getDiscountAmount(lineItems[i].getQtyInTrans()))//+
+                    //"   "+transMath.itemMaths(lineItems[i].getQtyInTrans(), i)
+            );
         }
                 
         
@@ -85,6 +87,10 @@ public class ConsoleReceipt implements ReceiptStrategy {
 
     public void setTransMath(TransactionMathsStrategy transMath) {
         this.transMath = transMath;
+    }
+    @Override
+    public LineItem[] getLineItems() {
+        return lineItems;
     }
     
 }

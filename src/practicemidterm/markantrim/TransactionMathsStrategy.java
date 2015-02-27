@@ -11,7 +11,7 @@ package practicemidterm.markantrim;
  */
 public interface TransactionMathsStrategy {
 
-    double itemMaths(int qty, int index);
+    double itemMaths(int qty, Product product);
 
     double totalMaths();
     

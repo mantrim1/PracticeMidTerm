@@ -10,27 +10,26 @@ package practicemidterm.markantrim;
  * @author Mark
  */
 public class RetailTransactionMath implements TransactionMathsStrategy {
-    private ReceiptStrategy lineItemStrategy;
+    private ReceiptStrategy receiptStrategy;
 
-    public RetailTransactionMath(ReceiptStrategy lineItemStrategy) {
-        this.lineItemStrategy = lineItemStrategy;
+    public RetailTransactionMath(ReceiptStrategy receiptStrategy) {
+        this.receiptStrategy = receiptStrategy;
     }
     
  @Override
     public double totalMaths() {
         double total=0;
-        for(int i=0;i<lineItemStrategy.getProductsInTrans().length;i++){
-            total+=itemMaths(lineItemStrategy.getQtyInTrans()[i], i);
+        for(int i=0;i<receiptStrategy.getLineItems().length;i++){
+            total+=itemMaths(receiptStrategy.getLineItems()[i].getQtyInTrans(), i);
         }
         return total;
     }
 
     @Override
-    public double itemMaths(int qty, int index) {
-        double qtyTotal=lineItemStrategy.getProductsInTrans()[index].getProductPrice()*qty;
+    public double itemMaths(int qty, Product product) {
+        double qtyTotal=product.getProductPrice()*qty;
         return qtyTotal;
     }
-    
-}
+    //use product item in maths thing to make it better fix null pointer
 
 

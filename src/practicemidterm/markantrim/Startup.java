@@ -21,6 +21,7 @@ public class Startup {
         PosManager test = new PosManager();
         test.newTransaction("100");
         test.addItem("A100", 2);
+        test.printReceipt(); 
         
         
     }
