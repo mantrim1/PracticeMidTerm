@@ -12,6 +12,9 @@ package practicemidterm.markantrim;
 public class PercentOffDiscount implements DiscountStrategy {
     private double discountRate = .10;
 
+   
+    
+
     @Override
     public double getDiscountRate() {
         return discountRate;

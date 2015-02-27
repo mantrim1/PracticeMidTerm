@@ -21,6 +21,14 @@ public class QtyDisountWithPercentage implements DiscountStrategy {
         this.minQTY = minQTY;
     }
 
+    public QtyDisountWithPercentage(int minQty, double discRate) {
+        this.discountRate=discRate;
+        this.minQTY=minQty;
+    }
+
+    
+    
+
     @Override
     public double getDiscountAmount(double price, int qty) {
         

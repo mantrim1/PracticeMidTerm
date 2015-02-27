@@ -17,37 +17,48 @@ public class ConsoleReceipt implements ReceiptStrategy {
     private LineItem[] lineItems=new LineItem[0];
     private DataManagmentStrategy dataManagment;
     private TransactionMathsStrategy transMath;
-
+    
+    
     public ConsoleReceipt() {
         this.dataManagment= new FakeDatabase();
+        this.transMath= new RetailTransactionMath();
+        
     }
     
     
    @Override
     public void output() {
-        DecimalFormat format = new DecimalFormat("#.###");
+        
         System.out.println("Kohl's Department Store"
                 + "\n Customer Id: "+customer.getCustomerID()
                 + "\n Customer Name: "+customer.getCustomerName()
                 + "\n"
-                + "\n Item QTY. Name            Price   Disc    Total"
+                + "\nItem QTY. Name            Price   Disc    Total"
+                + "\n************************************************"
                 );
         
         for (int i=0;i<lineItems.length;i++) {
-            System.out.println("\n"+lineItems[i].getProductsInTrans().getProductID()+
+            System.out.println(lineItems[i].getProductsInTrans().getProductID()+
                     "  "+lineItems[i].getQtyInTrans()+
                     "  "+lineItems[i].getProductsInTrans().getProductName()+
                     "    "+lineItems[i].getProductsInTrans().getProductPrice()+
-                    "   "+format.format(lineItems[i].getProductsInTrans().getDiscountAmount(lineItems[i].getQtyInTrans()))//+
-                    //"   "+transMath.itemMaths(lineItems[i].getQtyInTrans(), i)
+                    "   "+String.format("%.2f",lineItems[i].getProductsInTrans().getDiscountAmount(lineItems[i].getQtyInTrans()))+
+                    "   "+String.format("%.2f", transMath.itemMaths(lineItems[i].getQtyInTrans(),lineItems[i].getProductsInTrans(),
+                            (lineItems[i].getProductsInTrans().getDiscountAmount(lineItems[i].getQtyInTrans()))))
             );
+           
         }
+         System.out.println("\n"
+                    + "Total: "+String.format("%.2f", this.transMath.totalMaths(lineItems))+
+                    "\nYou Saved: "+String.format("%.2f",this.transMath.totalDiscount(lineItems))+
+                    "\n\n\n"
+            );
                 
         
        
         
     }
-
+   
     public ConsoleReceipt(String custID, DataManagmentStrategy dataManagment) {
         this.customer=dataManagment.findCustomer(custID);
         this.dataManagment=dataManagment;
