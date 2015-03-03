@@ -52,9 +52,7 @@ public class LineItem {
         this.qtyInTrans = qtyInTrans;
     }
     
-    public static void main(String[] args) {
-       
-    }
+
  
     
     
