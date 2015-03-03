@@ -11,7 +11,7 @@ package practicemidterm.markantrim;
  *
  * @author Mark
  */
-public class PosManager {
+public class CashRegister {
     private ReceiptStrategy receiptStrategy;
     public final void newTransaction(String custID){
         this.receiptStrategy = new ConsoleReceipt();

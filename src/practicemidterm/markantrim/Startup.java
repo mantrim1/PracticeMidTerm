@@ -18,7 +18,7 @@ public class Startup {
      */
     public static void main(String[] args) {
         
-        PosManager go1 = new PosManager();
+        CashRegister go1 = new CashRegister();
         go1.newTransaction("100");
         go1.addItem("A100", 2);
         go1.addItem("H100", 1);
