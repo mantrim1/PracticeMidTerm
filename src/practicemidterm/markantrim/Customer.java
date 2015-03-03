@@ -22,15 +22,15 @@ public class Customer {
         this.customerName = customerName;
     }
 
-    public void setCustomerID(String customerID) {
+    public final void setCustomerID(String customerID) {
         if(customerID==null||"".equals(customerID)){
-        this.customerID=("Name Not Found");
+        //Warning Needed
         }else{
         this.customerID = customerID;
         }
     }
 
-    public void setCustomerName(String customerName) {
+    public final void setCustomerName(String customerName) {
          if(customerName==null||"".equals(customerName)){
         this.customerName=("Name Not Found");
         }else{
@@ -40,11 +40,11 @@ public class Customer {
     
     
 
-    public String getCustomerID() {
+    public final String getCustomerID() {
         return customerID;
     }
 
-    public String getCustomerName() {
+    public final String getCustomerName() {
         return customerName;
     }
     

@@ -11,9 +11,7 @@ package practicemidterm.markantrim;
  */
 public class NoDiscount implements DiscountStrategy {
     private double discountRate=0;
-    
 
-    @Override
     public double getDiscountRate() {
         return this.discountRate;
     }

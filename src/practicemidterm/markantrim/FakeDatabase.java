@@ -11,13 +11,13 @@ package practicemidterm.markantrim;
  */
 public class FakeDatabase implements DataManagmentStrategy {
     //final?
-    private Customer[] customers ={
+    private final Customer[] customers ={
         new Customer("100", "Malcom Reynolds"),
         new Customer("200", "Solid Snake"),
         new Customer("300", "Garrus Vakarian")
     };
     //final?
-    private Product[] products ={
+    private final Product[] products ={
     new Product("A100", "Packers T-Shirt", 39.99, new PercentOffDiscount()),
     new Product("B100", "Brown Bath Towel", 25.99, new QtyDisountWithPercentage(3,.30)),
     new Product("C100", "Women's Earrings", 95.99, new NoDiscount()),

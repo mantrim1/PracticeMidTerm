@@ -15,17 +15,17 @@ public class PercentOffDiscount implements DiscountStrategy {
    
     
 
-    @Override
-    public double getDiscountRate() {
+
+    public final double getDiscountRate() {
         return discountRate;
     }
 
     @Override
-    public void setDiscountRate(double discountRate) {
+    public final void setDiscountRate(double discountRate) {
         this.discountRate = discountRate;
     }
 
-    public PercentOffDiscount(double discountRate) {
+    public  PercentOffDiscount(double discountRate) {
         this.discountRate = discountRate;
     }
 
@@ -33,12 +33,12 @@ public class PercentOffDiscount implements DiscountStrategy {
     }
     
     @Override
-    public double getDiscountAmount(double price, int qty){
+    public final double getDiscountAmount(double price, int qty){
         return price*qty*this.discountRate;
         
     }
     @Override
-    public double getDiscountedTotal(double price, int qty){
+    public final double getDiscountedTotal(double price, int qty){
         return price*qty-this.getDiscountedTotal(price, qty);
         
     }

@@ -28,27 +28,27 @@ public class LineItem {
     }
     
     
-    public DataManagmentStrategy getFakeData() {
+    public final DataManagmentStrategy getFakeData() {
         return fakeData;
     }
 
-    public void setFakeData(FakeDatabase fakeData) {
+    public final void setFakeData(FakeDatabase fakeData) {
         this.fakeData = fakeData;
     }
 
-    public Product getProductsInTrans() {
+    public final Product getProductsInTrans() {
         return product;
     }
 
-    public void setProductsInTrans(Product product) {
+    public final void setProductsInTrans(Product product) {
         this.product = product;
     }
 
-    public int getQtyInTrans() {
+    public final int getQtyInTrans() {
         return qtyInTrans;
     }
 
-    public void setQtyInTrans(int qtyInTrans) {
+    public final void setQtyInTrans(int qtyInTrans) {
         this.qtyInTrans = qtyInTrans;
     }
     

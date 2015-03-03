@@ -13,8 +13,6 @@ public interface DiscountStrategy {
 
     double getDiscountAmount(double price, int qty);
 
-    double getDiscountRate();
-
     double getDiscountedTotal(double price, int qty);
 
     void setDiscountRate(double discountRate);

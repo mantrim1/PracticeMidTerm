@@ -23,7 +23,7 @@ public class RetailTransactionMath implements TransactionMathsStrategy {
     
     
  @Override
-    public double totalMaths(LineItem[] lineItems) {
+    public final double totalMaths(LineItem[] lineItems) {
         double total=0;
         for(int i=0;i<lineItems.length;i++){
             total+=itemMaths(lineItems[i].getQtyInTrans(), lineItems[i].getProductsInTrans(),
@@ -32,7 +32,7 @@ public class RetailTransactionMath implements TransactionMathsStrategy {
         return total;
     }
     @Override
-    public double totalDiscount(LineItem[] lineItems){
+    public final double totalDiscount(LineItem[] lineItems){
         double totalDisc=0;
         for(int i=0;i<lineItems.length;i++){
             totalDisc+=lineItems[i].getProductsInTrans().getDiscountAmount(lineItems[i].getQtyInTrans());
@@ -40,7 +40,7 @@ public class RetailTransactionMath implements TransactionMathsStrategy {
         return totalDisc;
     }
     @Override
-    public double itemMaths(int qty, Product product, double discount) {
+    public final double itemMaths(int qty, Product product, double discount) {
 //        System.out.println(qty+"    "+product.getProductPrice());
         double qtyTotal=(product.getProductPrice()*qty)-(discount);
         return qtyTotal;

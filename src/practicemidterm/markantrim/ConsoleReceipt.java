@@ -27,7 +27,7 @@ public class ConsoleReceipt implements ReceiptStrategy {
     
     
    @Override
-    public void output() {
+    public final void output() {
         
         System.out.println("Kohl's Department Store"
                 + "\n Customer Id: "+customer.getCustomerID()
@@ -65,7 +65,7 @@ public class ConsoleReceipt implements ReceiptStrategy {
         
     }
     @Override
-    public void addItem(String productID, int qty){
+    public final void addItem(String productID, int qty){
         LineItem[] temp = new LineItem[lineItems.length + 1];
         LineItem item = new LineItem(this.dataManagment,productID,qty);
         arraycopy(this.lineItems, 0, temp, 0, this.lineItems.length);
@@ -73,34 +73,34 @@ public class ConsoleReceipt implements ReceiptStrategy {
         lineItems[lineItems.length-1] = item;
     }
 
-    public Customer getCustomer() {
+    public final Customer getCustomer() {
         return customer;
     }
     @Override
-    public void setCustomer(String customerId) {
+    public final void setCustomer(String customerId) {
         
         this.customer = this.dataManagment.findCustomer(customerId);
     }
 
     
 
-    public DataManagmentStrategy getDataManagment() {
+    public final DataManagmentStrategy getDataManagment() {
         return dataManagment;
     }
 
-    public void setDataManagment(DataManagmentStrategy dataManagment) {
+    public final void setDataManagment(DataManagmentStrategy dataManagment) {
         this.dataManagment = dataManagment;
     }
 
-    public TransactionMathsStrategy getTransMath() {
+    public final TransactionMathsStrategy getTransMath() {
         return transMath;
     }
 
-    public void setTransMath(TransactionMathsStrategy transMath) {
+    public final void setTransMath(TransactionMathsStrategy transMath) {
         this.transMath = transMath;
     }
-    @Override
-    public LineItem[] getLineItems() {
+  
+    public final LineItem[] getLineItems() {
         return lineItems;
     }
     

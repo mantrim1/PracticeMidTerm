@@ -30,7 +30,7 @@ public class QtyDisountWithPercentage implements DiscountStrategy {
     
 
     @Override
-    public double getDiscountAmount(double price, int qty) {
+    public final double getDiscountAmount(double price, int qty) {
         
         if(qty>=this.minQTY){
            return price*qty*this.discountRate;
@@ -40,8 +40,8 @@ public class QtyDisountWithPercentage implements DiscountStrategy {
         }
     }
 
-    @Override
-    public double getDiscountRate() {
+
+    public final double getDiscountRate() {
         return this.discountRate;
     }
 
@@ -51,7 +51,7 @@ public class QtyDisountWithPercentage implements DiscountStrategy {
     }
 
     @Override
-    public void setDiscountRate(double discountRate) {
+    public final void setDiscountRate(double discountRate) {
        this.discountRate=discountRate;
     }
     

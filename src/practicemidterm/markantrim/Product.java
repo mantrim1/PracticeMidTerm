@@ -27,20 +27,20 @@ public class Product {
     }
         
 
-    public String getProductID() {
+    public final String getProductID() {
         return productID;
     }
 
-    public String getProductName() {
+    public final String getProductName() {
         
         return productName;
     }
 
-    public double getProductPrice() {
+    public final double getProductPrice() {
         return productPrice;
     }
 
-    public void setProductID(String productID) {
+    public final void setProductID(String productID) {
         if(productID==null||productID==""){
         //Warning Needed
         }else{
@@ -49,7 +49,7 @@ public class Product {
         
     }
 
-    public void setProductName(String productName) {
+    public final void setProductName(String productName) {
         if(productName==null||productName==""){
         this.productName=("Name Not Found");
         }else{
@@ -57,7 +57,7 @@ public class Product {
         }
     }
 
-    public void setProductPrice(double productPrice) {
+    public final void setProductPrice(double productPrice) {
         if(productPrice<0){
         this.productPrice=(0.00);
         }else{
@@ -65,14 +65,14 @@ public class Product {
         }
     }
 
-    public DiscountStrategy getDiscountStrategy() {
+    public final DiscountStrategy getDiscountStrategy() {
         return discountStrategy;
     }
 
-    public void setDiscountStrategy(DiscountStrategy discountStrategy) {
+    public final void setDiscountStrategy(DiscountStrategy discountStrategy) {
         this.discountStrategy = discountStrategy;
     }
-    public double getDiscountAmount(int qty){
+    public final double getDiscountAmount(int qty){
         
         return discountStrategy.getDiscountAmount(productPrice, qty);
     }

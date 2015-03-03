@@ -13,6 +13,6 @@ public interface ReceiptStrategy {
     void output();
     void addItem(String productID, int qty);
     void setCustomer(String customerID);
-    LineItem[] getLineItems();
+    
    
 }
