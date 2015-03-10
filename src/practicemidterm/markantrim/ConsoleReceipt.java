@@ -6,6 +6,7 @@
 package practicemidterm.markantrim;
 import static java.lang.System.arraycopy;
 import java.text.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Mark
@@ -60,6 +61,7 @@ public class ConsoleReceipt implements ReceiptStrategy {
     }
    
     public ConsoleReceipt(String custID, DataManagmentStrategy dataManagment) {
+        
         this.customer=dataManagment.findCustomer(custID);
         this.dataManagment=dataManagment;
         

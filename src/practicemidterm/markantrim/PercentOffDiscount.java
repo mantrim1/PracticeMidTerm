@@ -5,6 +5,8 @@
  */
 package practicemidterm.markantrim;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mark
@@ -22,6 +24,11 @@ public class PercentOffDiscount implements DiscountStrategy {
 
     @Override
     public final void setDiscountRate(double discountRate) {
+        try{
+            POSVerification.testIfNotNegative(discountRate, "discount");
+        }catch(IllegalArgumentException e){
+            JOptionPane.showMessageDialog(null, "The discount was not above 0");
+        }
         this.discountRate = discountRate;
     }
 
